@@ -15,6 +15,10 @@ AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'
 
+@app.route('/')
+def index():
+    return "Welcome to our Spotify App <a href='/login'>Login with Spotify</a>"
+
 @app.route('/login')
 def login():
     scopes = 'user-read-email user-read-private playlist-read-private playlist-read-collaborative ugc-image-upload user-follow-read user-top-read user-read-recently-played user-library-read'
@@ -74,3 +78,6 @@ def refresh_token():
         session['expires_at'] = datetime.now().timestamp() + new_token_info['expires_in']
 
         return redirect('/discover') #After login page, for scroll
+
+if __name__=='__main__':
+    app.run(host='0.0.0.0', debug=True)
