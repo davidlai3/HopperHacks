@@ -64,9 +64,14 @@ def callback():
         headers = {
         'Authorization': f"Bearer {session['access_token']}"
         }
-
-        name = requests.get(API_BASE_URL + 'me', headers=headers).json()["display_name"]
-        image = requests.get(API_BASE_URL + 'me', headers=headers).json()["images"]
+        try:
+            name = requests.get(API_BASE_URL + 'me', headers=headers).json()["display_name"]
+        except:
+            name = ''
+        try:
+            image = requests.get(API_BASE_URL + 'me', headers=headers).json()["images"]
+        except:
+            image = None
         #gender = False #Needs to be taken from webpage
         #age = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Needs to be taken from the webpage
         #country = requests.get(API_BASE_URL + 'me', headers=headers).json()["country"]
