@@ -1,13 +1,8 @@
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
-    
-    
-    
-    
     background-color: transparent;
     width: 550px;
     height: 700px;
-    border: 1px solid #f1f1f1;
     border: none;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
@@ -54,6 +49,7 @@
     font-size: large;
   }
 
+/* Padding */
   .pad {
     padding-top: 30px;
     padding-right: 30px;
@@ -63,14 +59,65 @@
 
   .name{ 
     font-family: 'Ubuntu', sans-serif;
+    
   }
 
   .age{
     font-family: 'Lato', sans-serif;
+   
   }
 
   .percentage{
     font-family: 'Ubuntu', sans-serif;
+    
+  }
+
+  #avatar{
+    position: absolute;
+    top: 70px;
+    left: 100px;
+  }
+
+  #banner {
+    background-image:url("images.jpeg"); 
+    display: block;
+
+    height:200px;
+    position: relative;
+    }
+
+/* Buttons */
+  .round-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease;
+  }
+
+  .round-button:hover {
+    background-color: #e0e0e0;
+  }
+
+  #like-button {
+    background: linear-gradient(180deg, rgb(135, 225, 135), rgb(76, 148, 220));
+    position: absolute; 
+    left: 1400px; 
+    top: 500px; 
+    
+  }
+
+  #dislike-button {
+    background: linear-gradient(180deg, rgb(223, 108, 127), rgb(238, 40, 238)); /* Red color for dislike button */
+    position: absolute; 
+    left: 250px; 
+    top: 500px; 
   }
 
 

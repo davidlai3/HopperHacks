@@ -39,9 +39,12 @@
         <div class="flip-card d-flex justify-content-center align-items-center">
             <div class="flip-card-inner">
               <!--Front of Flipcard-->
+            
               <div class="flip-card-front">
+                <div id="banner"></div>
+               
                 <!-- Avatar --> 
-                <div class="avatar mx-auto white pad"><img src="headshot.png" class="rounded-circle"
+                <div class="avatar mx-auto white pad" id="avatar" ><img src="headshot.png" class="rounded-circle"
                     alt="Sample avatar image." style="width:300px;height: 350px;">
                 </div>
                 <!-- Name -->
@@ -65,8 +68,17 @@
             </div>
             </div>
           </div>
+          
+          <!--Buttons-->
+          <div class="round-button" id="like-button">
+            <img src="thumbs-up.png" alt="Like" width="70" height="70">
         
+          </div>
+          
+          <div class="round-button" id="dislike-button">
+            <img src="thumbs-down.png" alt="Dislike" width="70" height="70">
 
+          </div>
 
     </div>
     <div class="tab-pane fade" id="matches">
@@ -75,8 +87,13 @@
       <p>This is the content for the Your Matches tab.</p>
     </div>
   </div>
+
+
+
 </div>
 
+
+  
 
 
 <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
