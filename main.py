@@ -5,14 +5,14 @@ import requests
 import urllib.parse
 import json
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Flask, redirect, request, jsonify, session
 
 app = Flask(__name__)
 app.secret_key = '7CkWZTLgAkq5sMKTwAIAhXfo6nVleb7C'
 
-CLIENT_ID = '2dc2786c2ea544fb9e4121acbb602238'
-CLIENT_SECRET = 'cc31bdeb6fc147109b55b5e7f58080ab'
+CLIENT_ID = 'f7e239bd09864f0e80778a36626ed251'
+CLIENT_SECRET = '51de16b26ecc48deb53cea24443a89c6'
 REDIRECT_URI = 'http://localhost:5000/callback'
 
 AUTH_URL = 'https://accounts.spotify.com/authorize'
@@ -21,9 +21,9 @@ API_BASE_URL = 'https://api.spotify.com/v1/'
 
 @app.route('/')
 def index():
-    return "Welcome to our Spotify App <a href='/authenticate'>Login with Spotify Account</a>" #render_template('front-end/welcome.html')#
+    return "Welcome to our Spotify App <a href='/login'>Login with Spotify Account</a>" #render_template('front-end/welcome.html')#
 
-@app.route('/authenticate')
+@app.route('/login')
 def login():
     scopes = 'user-read-email user-read-private playlist-read-private playlist-read-collaborative ugc-image-upload user-follow-read user-top-read user-read-recently-played user-library-read'
     
@@ -60,28 +60,45 @@ def callback():
         session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
 
-        header = {
+        if 'access_token' not in session:
+            return redirect('/login')
+        
+        if datetime.now().timestamp() > session['expires_at']:
+            return redirect('/refresh-token')
+
+        headers = {
         'Authorization': f"Bearer {session['access_token']}"
         }
 
-        #image = requests.get(API_BASE_URL + 'me', headers=header)
-        name = requests.get(API_BASE_URL + 'me', headers=header).json()["display_name"]
+        name = requests.get(API_BASE_URL + 'me', headers=headers).json()["display_name"]
+        image = requests.get(API_BASE_URL + 'me', headers=headers).json()["images"]
         #gender = False #Needs to be taken from webpage
         #age = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Needs to be taken from the webpage
-        #country = requests.get(API_BASE_URL + 'me', headers=header)
-        #email = requests.get(API_BASE_URL + 'me', headers=header)
-        #genres = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers).json()["items"] #Later run through loop
-        #artists = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Later run through loop
-        #songs = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Later run through loop
+        country = requests.get(API_BASE_URL + 'me', headers=headers).json()["country"]
+        email = requests.get(API_BASE_URL + 'me', headers=headers).json()["email"]
+        artistsRaw = requests.get(API_BASE_URL + 'me/top/artists', headers=headers).json()["items"]
+        artists = []
+        for artist in artistsRaw:
+            artists.append(artist['name'])
+        tracksRaw = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers).json()["items"] 
+        tracks = []
+        for track in tracksRaw:
+            tracks.append(track['name'])
 
-        print(f"\n\n\nName: {name}\n\n\n")
+        print(f"\n\nName: {name}")
+        print(f"Image: {image}")
+        print(f"Country: {country}")
+        print(f"Email: {email}")
+        print(f"Artists: {artists}")
+        print(f"Tracks: {tracks}\n\n")
+        
 
         return redirect('/') #After login page, for scroll
 
 @app.route('/refresh-token')
 def refresh_token():
     if 'refresh_token' not in session:
-        return redirect('/authenticate')
+        return redirect('/login')
     
     if datetime.now().timestamp() > session['expires_at']:
         req_body = {
