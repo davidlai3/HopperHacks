@@ -1,7 +1,7 @@
 .gradient-background {
-    background: linear-gradient(300deg, #87e384, #ff4c68, #ef8172);
-    background-size: 180% 400%;
-    animation: gradient-animation 18s ease infinite;
+    background: linear-gradient(300deg, #91d48f, #ff4c68, #ef8172);
+    background-size: 150% 300%;
+    animation: gradient-animation 10s ease infinite;
   }
   
   @keyframes gradient-animation {
@@ -37,7 +37,7 @@
   #slogan {
   font-family: 'DM Serif Display', serif;
   font-family: 'Titillium Web', sans-serif;
-  font-size:30px;
+  font-size:50px;
   text-align: center;
   margin-top: -55px;
   
@@ -175,7 +175,7 @@
   font-weight: 500;
   line-height: 2.5;
   outline: transparent;
-  padding: 0 1rem;
+  padding: 20px 30px;
   text-align: center;
   text-decoration: none;
   transition: box-shadow .2s ease-in-out;
@@ -183,7 +183,12 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  margin-top:-300px;
+}
+#button1 {
+  margin-top:-360px;
+}
+#button2 {
+  margin-top:-730px;
 }
 
 .button-62:not([disabled]):focus {
