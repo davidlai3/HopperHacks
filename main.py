@@ -3,7 +3,6 @@
 
 import requests
 import urllib.parse
-import json
 
 from datetime import datetime
 from flask import Flask, redirect, request, jsonify, session, render_template
@@ -11,7 +10,7 @@ from flask import Flask, redirect, request, jsonify, session, render_template
 app = Flask(__name__)
 app.secret_key = '7CkWZTLgAkq5sMKTwAIAhXfo6nVleb7C'
 
-CLIENT_ID = '2dc2786c2ea544fb9e4121acbb602238'
+CLIENT_ID = 'f7e239bd09864f0e80778a36626ed251'
 CLIENT_SECRET = '51de16b26ecc48deb53cea24443a89c6'
 REDIRECT_URI = 'http://localhost:5000/callback'
 
