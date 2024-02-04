@@ -71,10 +71,12 @@ def callback():
         country = requests.get(API_BASE_URL + 'me', headers=headers).json()["country"]
         email = requests.get(API_BASE_URL + 'me', headers=headers).json()["email"]
         artistsRaw = requests.get(API_BASE_URL + 'me/top/artists', headers=headers).json()["items"]
+        tracksRaw = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers).json()["items"] 
         artists = []
+        genres = []
         for artist in artistsRaw:
             artists.append(artist['name'])
-        tracksRaw = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers).json()["items"] 
+            genres += artist['genres']
         tracks = []
         for track in tracksRaw:
             tracks.append(track['name'])
@@ -83,6 +85,7 @@ def callback():
         print(f"Image: {image}")
         print(f"Country: {country}")
         print(f"Email: {email}")
+        print(f"Genres: {genres}")
         print(f"Artists: {artists}")
         print(f"Tracks: {tracks}\n\n")
 
