@@ -25,7 +25,7 @@ def index():
 
 @app.route('/authenticate')
 def login():
-    scopes = 'user-read-email ugc-image-upload user-top-read'
+    scopes = 'user-read-email user-read-private ugc-image-upload user-top-read'
     
     params = {
         'client_id': CLIENT_ID,
