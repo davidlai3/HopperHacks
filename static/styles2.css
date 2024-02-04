@@ -82,7 +82,7 @@
   }
 
   #banner {
-    background-image: url("music.jpeg");    
+    background-image: url_for('static', filename='music.jpeg');    
     background-size: 400px;
     width: 550px;
     height: 300px;
