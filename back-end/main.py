@@ -5,7 +5,7 @@ import requests
 import urllib.parse
 
 from datetime import datetime, timedelta
-from flask import Flask, redirect, request, jsonify, session
+from flask import Flask, redirect, request, jsonify, session, render_template
 
 app = Flask(__name__)
 app.secret_key = '7CkWZTLgAkq5sMKTwAIAhXfo6nVleb7C'
@@ -20,9 +20,9 @@ API_BASE_URL = 'https://api.spotify.com/v1/'
 
 @app.route('/')
 def index():
-    return '/index.html'
+    return  render_template('index.html')
 
-@app.route('/login')
+@app.route('/authenticate')
 def login():
     scopes = 'user-read-email user-read-private playlist-read-private playlist-read-collaborative ugc-image-upload user-follow-read user-top-read user-read-recently-played user-library-read'
     
@@ -55,11 +55,11 @@ def callback():
         response = requests.post(TOKEN_URL, data=req_body)
         token_info = response.json()
 
-        session['access_token'] = token_info['access_tocken']
-        session['refresh_token'] = token_info['refresh_tocken']
+        session['access_token'] = token_info['access_token']
+        session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
 
-        return redirect('/discover') #After login page, for scroll
+        return redirect('/object') #After login page, for scroll
 
 @app.route('/refresh-token')
 def refresh_token():
@@ -81,6 +81,6 @@ def refresh_token():
         session['expires_at'] = datetime.now().timestamp() + new_token_info['expires_in']
 
         return redirect('/discover') #After login page, for scroll
-
+    
 if __name__=='__main__':
     app.run(host='0.0.0.0', debug=True)
