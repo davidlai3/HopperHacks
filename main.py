@@ -6,7 +6,7 @@ import urllib.parse
 import json
 
 from datetime import datetime
-from flask import Flask, redirect, request, jsonify, session
+from flask import Flask, redirect, request, jsonify, session, render_template
 
 app = Flask(__name__)
 app.secret_key = '7CkWZTLgAkq5sMKTwAIAhXfo6nVleb7C'
@@ -21,7 +21,7 @@ API_BASE_URL = 'https://api.spotify.com/v1/'
 
 @app.route('/')
 def index():
-    return "Welcome to our Spotify App <a href='/authenticate'>Login with Spotify Account</a>" #render_template('front-end/welcome.html')#
+    return render_template('index.html')
 
 @app.route('/authenticate')
 def login():
