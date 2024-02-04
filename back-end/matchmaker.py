@@ -35,7 +35,7 @@ def calculateCompat(user1, user2):
         resString = findCommonElement(user1.artists, user2.artists)
     elif text == song:
         resString = findCommonElement(user1.songs, user2.songs)
-    return (genre + artist + song) / 3, resString
+    return 0.7*genre + 0.2*artist + 0.1*song, resString
 
 def findCommonElement(l1, l2):
     for i in l1:
@@ -44,21 +44,11 @@ def findCommonElement(l1, l2):
     return ""
 
 def match(user1, user2):
-    res = ""
     compatibility = calculateCompat(user1, user2)
     percentage = round(compatibility[0] * 100, 2)
     text = compatibility[1]
-    if percentage != 0:
-        res += f"{ user1.name } and { user2.name } are { str(percentage) }% compatible"
-        res += f"\nYou both listen to { text }"
-    else:
-        res = f"{ user1.name } and { user2.name } are not compatible. :("
-    return res
+    return (percentage, text)
 
-user1 = User("David", "M", "18", "david@gmail", "12345", ["Rock", "Rap", "RNB", "Poo"], ["Queen", "Michael Jackson", "Billy Joel", "Kendrick Lamar"], ["Bohemian Rhapsody", "Pride", "Instagram", "War"])
 
-user2 = User("Jas", "M", "18", "david@gmail", "12345", ["Indie", "HyperPop", "Grunge", "Classical"], ["Boy Pablo", "Drake", "Yeat", "Pop Smoke"], ["These Days", "Alright", "Ultimate", "August"])
-
-print(match(user1, user2))
 
 

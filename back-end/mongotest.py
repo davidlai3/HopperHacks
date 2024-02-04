@@ -1,15 +1,16 @@
 from pymongo import MongoClient
+import json
 
 # Genres: Length 3
 # Artists: Length 10
 # Songs: Length 20
 class User:
-    def __init__(self, name, gender, age, email, password, genres, artists, songs):
+    def __init__(self, name, gender, age, country, email, genres, artists, songs):
         self.name = name
         self.gender = gender
         self.age = age
+        self.country = country
         self.email = email
-        self.password = password
         self.genres = genres
         self.artists = artists
         self.songs = songs
@@ -26,6 +27,10 @@ def parseInfo():
 
 def insert_user(user):
     info.insert_one(user.__dict__)
+
+#f = open('Names.json')
+#data = json.load(f)
+#info.insert_many(data)
 
 
 
