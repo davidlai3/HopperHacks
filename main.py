@@ -65,7 +65,7 @@ def callback():
         }
 
         #image = requests.get(API_BASE_URL + 'me', headers=header)
-        name = requests.get(API_BASE_URL + 'me', headers=header).json()["display_name"]
+        name = requests.get(API_BASE_URL + 'me', headers=header).content
         #gender = False #Needs to be taken from webpage
         #age = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Needs to be taken from the webpage
         #country = requests.get(API_BASE_URL + 'me', headers=header)
