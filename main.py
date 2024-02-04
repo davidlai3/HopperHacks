@@ -4,7 +4,7 @@
 import requests
 import urllib.parse
 
-from datetime import datetime, timedelta
+from datetime import datetime
 from flask import Flask, redirect, request, jsonify, session, render_template
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ API_BASE_URL = 'https://api.spotify.com/v1/'
 
 @app.route('/')
 def index():
-    return  render_template('index.html')
+    return  "Welcome to our Spotify App <a href='/authenticate'>Login with Spotify Account</a>"#render_template('front-end/welcome.html')
 
 @app.route('/authenticate')
 def login():
@@ -59,12 +59,28 @@ def callback():
         session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
 
-        return redirect('/object') #After login page, for scroll
+        headers = {
+        'Authorization': f"Bearer {session['access_token']}"
+        }
+
+        profile = requests.get(API_BASE_URL + 'me', headers=headers).json()["images"]["url"]
+        name = requests.get(API_BASE_URL + 'me', headers=headers).json()["display_name"]
+        #gender = False #Needs to be taken from webpage
+        #age = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Needs to be taken from the webpage
+        country = requests.get(API_BASE_URL + 'me', headers=headers).json()["country"]
+        email = requests.get(API_BASE_URL + 'me', headers=headers).json()["email"]
+        #genres = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers).json()["items"] #Later run through loop
+        #artists = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Later run through loop
+        #songs = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Later run through loop
+
+        print(f"\n\n\nImage: {profile},\nName: {name},\nCountry: {country},\nEmail: {email}\n\n\n")
+
+        return redirect('/') #After login page, for scroll
 
 @app.route('/refresh-token')
 def refresh_token():
     if 'refresh_token' not in session:
-        return redirect('/login')
+        return redirect('/authenticate')
     
     if datetime.now().timestamp() > session['expires_at']:
         req_body = {
