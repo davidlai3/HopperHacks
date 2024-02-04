@@ -1,5 +1,8 @@
 from pymongo import MongoClient
 
+# Genres: Length 3
+# Artists: Length 10
+# Songs: Length 20
 class User:
     def __init__(self, name, gender, age, email, password, genres, artists, songs):
         self.name = name
@@ -17,7 +20,9 @@ client = MongoClient("mongodb+srv://davidlai3:sdfghj45@cluster0.3eutqra.mongodb.
 db = client.Users
 info = db.UserInfo
 
-u1 = User("Jane", "F", 25, "janedoe@yahoo.com", "123456", ["Rock"], ["Queen"], ["Bohemian Rhapsody"])
+# Takes in api data and finds top genre
+def parseInfo():
+    pass
 
 def insert_user(user):
     info.insert_one(user.__dict__)
