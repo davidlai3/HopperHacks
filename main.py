@@ -46,7 +46,7 @@ def get_token():
     
     return token_info
 
-def getting_input():
+def get_data():
     headers = {
     'Authorization': f"Bearer {session['access_token']}"
     }
@@ -110,40 +110,19 @@ def callback():
     session[TOKEN_INFO] = token_info
     return redirect(url_for('mainweb', external=True))
 
-@app.route('/refresh-token')
-def refresh_token():
-    if 'refresh_token' not in session:
-        return redirect('/authenticate')
-    
-    if datetime.now().timestamp() > session['expires_at']:
-        req_body = {
-            'grant_type': 'refresh_token',
-            'refresh_token': session['refresh_token'],
-            'client_id': CLIENT_ID,
-            'client_secret': CLIENT_SECRET
-        }
-
-        response = requests.post(TOKEN_URL, data=req_body)
-        new_token_info = response.json()
-
-        session['access_token'] = new_token_info['access_token']
-        session['expires_at'] = datetime.now().timestamp() + new_token_info['expires_in']
-
-        return redirect('/mainweb') #After login page, for scroll
-
 @app.route('/spoaut')
 def spoaut():
     return render_template('spoaut.html')
 
 @app.route('/mainweb')
 def mainweb():
-    if 'refresh_token' not in session:
+    try:
+        token_info = get_token()
+    except:
+        print("User not logged in!")
         return redirect('/authenticate')
     
-    if datetime.now().timestamp() > session['expires_at']:
-        return redirect('/refresh_token')
+    return render_template('/mainweb.html')
 
-    else:
-        return render_template('/mainweb.html')
 if __name__=='__main__':
     app.run(host='0.0.0.0', debug=True)
