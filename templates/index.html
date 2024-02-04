@@ -25,8 +25,9 @@
   <div class="title"><img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" class="title" width: 400px,
     height: auto></div>
     <p id="slogan">Where Tinder meets Spotify</p>
-    <div class="button-container" id="button1"><button class="button-62" onclick="toggleLogin()">Sign In</button></div>
-    <div class="button-container" id="button2"><a href="{{ url_for('templates', filename='spoaut.html')}}"><button class="button-62" >Create Account</button></a></div>
+    <form action="/spoaut.html">
+    <div class="button-container" id="button2"><button class="button-62" >Sign In</button></div>
+    </form>
     <div class="overlay">
       <div class="login">
         <div class="header">
