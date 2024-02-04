@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-import json
 
 # Genres: Length 3
 # Artists: Length 10
