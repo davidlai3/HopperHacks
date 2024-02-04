@@ -2,7 +2,6 @@
 
 # Song Match
 
-from mongotest import User
 from collections import Counter
 import math
 
