@@ -1,6 +1,6 @@
 .gradient-background {
     background: linear-gradient(300deg, #79eb75, #ff4c68, #ef8172);
-    background-size: 180% 180%;
+    background-size: 180% 400%;
     animation: gradient-animation 18s ease infinite;
     
   }
@@ -38,7 +38,7 @@
   #slogan {
   font-family: 'DM Serif Display', serif;
   font-family: 'Titillium Web', sans-serif;
-  font-size:30px;
+  font-size:50px;
   text-align: center;
   margin-top: -55px;
   
@@ -183,7 +183,7 @@
   font-weight: 500;
   line-height: 2.5;
   outline: transparent;
-  padding: 0 1rem;
+  padding: 20px 30px;
   text-align: center;
   text-decoration: none;
   transition: box-shadow .2s ease-in-out;
@@ -191,7 +191,12 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  margin-top:-300px;
+}
+#button1 {
+  margin-top:-360px;
+}
+#button2 {
+  margin-top:-730px;
 }
 
 .button-62:not([disabled]):focus {
@@ -201,4 +206,3 @@
 .button-62:not([disabled]):hover {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
->>>>>>> ee16db5a4be3e0c693c8a9d5f41711a39b994a3b

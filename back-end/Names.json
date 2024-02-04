@@ -1,132 +1,102 @@
 [
 {
-  "name": "David",
-  "gender": "Male",
-  "age": 18,
-  "email": "david@gmail.com",
-  "password": "12345",
-  "genres": ["Rock", "Pop", "Rap", "Hip Hop"],
-  "artists": ["Queen", "Michael Jackson", "Kendrick Lamar", "Dua Lipa"],
-  "songs": ["Don't Stop Me Now", "Thriller", "LOVE", "Don't Start Now"]
+"name": "Elijah",
+"gender": "Male",
+"age": 28,
+"email": "elijah@example.com",
+"country": "United States",
+"genres": ["Rock", "Indie", "Pop", "Electronic"],
+"artists": ["Arctic Monkeys", "Tame Impala", "Beyoncé", "ODESZA"],
+"songs": ["Do I Wanna Know", "The Less I Know The Better", "Halo", "Say My Name"]
 },
 {
-  "name": "Emma",
-  "gender": "Female",
-  "age": 25,
-  "email": "emma@example.com",
-  "password": "p@ssw0rd",
-  "genres": ["Pop", "Indie", "Electronic", "R&B"],
-  "artists": ["Billie Eilish", "The Weeknd", "Disclosure", "SZA"],
-  "songs": ["Bad Guy", "Blinding Lights", "Latch", "Good Days"]
-},
-{
-  "name": "Alex",
-  "gender": "Non-Binary",
-  "age": 30,
-  "email": "alex@example.com",
-  "password": "secure123",
-  "genres": ["Alternative", "Jazz", "Reggae", "Electronic"],
-  "artists": ["Radiohead", "Nina Simone", "Bob Marley", "ODESZA"],
-  "songs": ["Creep", "Feeling Good", "Three Little Birds", "Say My Name"]
-},
-{
-  "name": "Sophie",
-  "gender": "Female",
-  "age": 22,
-  "email": "sophie@example.com",
-  "password": "securePass123",
-  "genres": ["Pop", "EDM", "Hip Hop", "Country"],
-  "artists": ["Taylor Swift", "Calvin Harris", "Drake", "Kacey Musgraves"],
-  "songs": ["Shake It Off", "Summer", "Hotline Bling", "High Horse"]
-},
-{
-  "name": "Elijah",
-  "gender": "Male",
-  "age": 28,
-  "email": "elijah@example.com",
-  "password": "securePwd123",
-  "genres": ["Rock", "Indie", "Pop", "Electronic"],
-  "artists": ["Arctic Monkeys", "Tame Impala", "Beyoncé", "ODESZA"],
-  "songs": ["Do I Wanna Know", "The Less I Know The Better", "Halo", "Say My Name"]
-},
-{
-  "name": "Avery",
-  "gender": "Non-Binary",
-  "age": 24,
-  "email": "avery@example.com",
-  "password": "strongPass456",
-  "genres": ["Alternative", "R&B", "Hip Hop", "Country"],
-  "artists": ["Imagine Dragons", "Frank Ocean", "Kendrick Lamar", "Kacey Musgraves"],
-  "songs": ["Radioactive", "Thinkin Bout You", "HUMBLE.", "Rainbow"]
+"name": "Avery",
+"gender": "Male", 
+"age": 24,
+"email": "avery@example.com",
+"country": "Canada",
+"genres": ["Alternative", "R&B", "Hip Hop", "Country"],
+"artists": ["Imagine Dragons", "Frank Ocean", "Kendrick Lamar", "Kacey Musgraves"],
+"songs": ["Radioactive", "Thinkin Bout You", "HUMBLE.", "Rainbow"]
 },
 {
   "name": "Olivia",
   "gender": "Female",
   "age": 30,
   "email": "olivia@example.com",
-  "password": "safePwd789",
+  "country": "United Kingdom",
   "genres": ["Pop", "Jazz", "Reggae", "EDM"],
   "artists": ["Ariana Grande", "Ella Fitzgerald", "Bob Marley", "Martin Garrix"],
   "songs": ["Thank U, Next", "Summertime", "No Woman, No Cry", "Animals"]
 },
 {
+  "name": "Gabriel",
+  "gender": "Male",
+  "age": 26,
+  "email": "gabriel@example.com",
+  "country": "Australia",
+  "genres": ["Hip Hop", "Rock", "Pop", "Electronic"],
+  "artists": ["Drake", "Foo Fighters", "Lady Gaga", "Avicii"],
+  "songs": ["Hotline Bling", "Learn to Fly", "Bad Romance", "Wake Me Up"]
+},
+{
   "name": "Jordan",
-  "gender": "Genderqueer",
+  "gender": "Male",
   "age": 35,
   "email": "jordan@example.com",
-  "password": "protected789",
+  "country": "Netherlands",
   "genres": ["Indie", "Country", "R&B", "Blues"],
   "artists": ["The Lumineers", "Johnny Cash", "Erykah Badu", "B.B. King"],
   "songs": ["Ho Hey", "Ring of Fire", "On & On", "The Thrill Is Gone"]
 },
 {
-  "name": "Logan",
-  "gender": "Male",
-  "age": 32,
-  "email": "logan@example.com",
-  "password": "strongPwd567",
-  "genres": ["Rock", "Hip Hop", "Alternative", "EDM"],
-  "artists": ["Red Hot Chili Peppers", "Jay-Z", "Twenty One Pilots", "Calvin Harris"],
-  "songs": ["Under the Bridge", "99 Problems", "Stressed Out", "Feel So Close"]
-},
-{
-  "name": "Skyler",
-  "gender": "Non-Binary",
-  "age": 29,
-  "email": "skyler@example.com",
-  "password": "secure123!",
-  "genres": ["Indie", "R&B", "Pop", "Folk"],
-  "artists": ["Vampire Weekend", "Solange", "Lorde", "Mumford & Sons"],
-  "songs": ["A-Punk", "Cranes in the Sky", "Royals", "I Will Wait"]
-},
-{
-  "name": "Peyton",
+  "name": "Hannah",
   "gender": "Female",
-  "age": 25,
-  "email": "peyton@example.com",
-  "password": "safePwd246",
-  "genres": ["Pop", "Country", "Hip Hop", "Electronic"],
-  "artists": ["Taylor Swift", "Chris Stapleton", "Cardi B", "Zedd"],
-  "songs": ["Blank Space", "Tennessee Whiskey", "Bodak Yellow", "Clarity"]
+  "age": 29,
+  "email": "hannah@example.com",
+  "country": "United States",
+  "genres": ["Pop", "Rock", "Indie", "Electronic"],
+  "artists": ["Taylor Swift", "Coldplay", "Florence + the Machine", "Calvin Harris"],
+  "songs": ["Love Story", "Fix You", "Shake It Out", "Summer"]
 },
 {
-  "name": "Riley",
+  "name": "Liam",
   "gender": "Male",
-  "age": 28,
-  "email": "riley@example.com",
-  "password": "protected678",
-  "genres": ["Rock", "Jazz", "Reggae", "Techno"],
-  "artists": ["Led Zeppelin", "Miles Davis", "Bob Marley", "Daft Punk"],
-  "songs": ["Stairway to Heaven", "So What", "One Love", "Get Lucky"]
+  "age": 31,
+  "email": "liam@example.com",
+  "country": "Canada",
+  "genres": ["Rock", "Hip Hop", "Alternative", "EDM"],
+  "artists": ["The Killers", "Kanye West", "Twenty One Pilots", "Avicii"],
+  "songs": ["Mr. Brightside", "Power", "Stressed Out", "Wake Me Up"]
 },
 {
-  "name": "Jordan",
-  "gender": "Genderqueer",
-  "age": 33,
-  "email": "jordan@example.com",
-  "password": "safePass123",
-  "genres": ["Indie", "Soul", "Hip Hop", "House"],
-  "artists": ["Arctic Monkeys", "Aretha Franklin", "Kanye West", "Disclosure"],
-  "songs": ["Do I Wanna Know", "Respect", "Stronger", "Latch"]
+  "name": "Isabella",
+  "gender": "Female",
+  "age": 26,
+  "email": "isabella@example.com",
+  "country": "United Kingdom",
+  "genres": ["Indie", "R&B", "Pop", "Folk"],
+  "artists": ["Arctic Monkeys", "Beyoncé", "Lorde", "Mumford & Sons"],
+  "songs": ["Do I Wanna Know", "Halo", "Royals", "I Will Wait"]
+},
+{
+  "name": "Mason",
+  "gender": "Male",
+  "age": 27,
+  "email": "mason@example.com",
+  "country": "Australia",
+  "genres": ["Pop", "Hip Hop", "Rock", "Electronic"],
+  "artists": ["Ed Sheeran", "Drake", "Queen", "Zedd"],
+  "songs": ["Shape of You", "Hotline Bling", "Bohemian Rhapsody", "Clarity"]
+},
+{
+  "name": "Sophia",
+  "gender": "Female",
+  "age": 24,
+  "email": "sophia@example.com",
+  "country": "Germany",
+  "genres": ["Indie", "Electronic", "R&B", "Pop"],
+  "artists": ["Alt-J", "Flume", "Beyoncé", "Dua Lipa"],
+  "songs": ["Breezeblocks", "Never Be Like You", "Crazy in Love", "New Rules"]
 }
 ]
