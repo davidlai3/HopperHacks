@@ -25,7 +25,7 @@ def index():
 
 @app.route('/authenticate')
 def login():
-    scopes = 'user-read-email user-read-private'
+    scopes = 'user-read-email user-top-read'
     
     params = {
         'client_id': CLIENT_ID,
@@ -68,7 +68,7 @@ def callback():
         image = requests.get(API_BASE_URL + 'me', headers=headers).json()["images"]
         #gender = False #Needs to be taken from webpage
         #age = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Needs to be taken from the webpage
-        country = requests.get(API_BASE_URL + 'me', headers=headers).json()["country"]
+        #country = requests.get(API_BASE_URL + 'me', headers=headers).json()["country"]
         email = requests.get(API_BASE_URL + 'me', headers=headers).json()["email"]
         artistsRaw = requests.get(API_BASE_URL + 'me/top/artists', headers=headers).json()["items"]
         tracksRaw = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers).json()["items"] 
@@ -83,7 +83,7 @@ def callback():
 
         print(f"\n\nName: {name}")
         print(f"Image: {image}")
-        print(f"Country: {country}")
+        #print(f"Country: {country}")
         print(f"Email: {email}")
         print(f"Genres: {genres}")
         print(f"Artists: {artists}")
