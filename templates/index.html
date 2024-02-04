@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
     <title>Welcome</title>
 </head>
 <body class="gradient-background">
-  <div class="title"><img src="logo.png" alt="Logo" class="title" width: 400px,
+  <div class="title"><img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" class="title" width: 400px,
     height: auto></div>
     <p id="slogan">Where Tinder meets Spotify</p>
     <div class="button-container" id="button1"><button class="button-62" onclick="toggleLogin()">Sign In</button></div>
