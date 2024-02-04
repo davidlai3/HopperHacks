@@ -3,6 +3,7 @@
 
 import requests
 import urllib.parse
+import json
 
 from datetime import datetime
 from flask import Flask, redirect, request, jsonify, session
@@ -12,7 +13,7 @@ app.secret_key = '7CkWZTLgAkq5sMKTwAIAhXfo6nVleb7C'
 
 CLIENT_ID = '2dc2786c2ea544fb9e4121acbb602238'
 CLIENT_SECRET = 'cc31bdeb6fc147109b55b5e7f58080ab'
-REDIRECT_URI = 'http://localhost:3000/callback'
+REDIRECT_URI = 'http://localhost:5000/callback'
 
 AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
@@ -59,21 +60,21 @@ def callback():
         session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
 
-        headers = {
+        header = {
         'Authorization': f"Bearer {session['access_token']}"
         }
 
-        profile = requests.get(API_BASE_URL + 'me', headers=headers).json()["images"]["url"]
-        name = requests.get(API_BASE_URL + 'me', headers=headers).json()["display_name"]
+        #image = requests.get(API_BASE_URL + 'me', headers=header)
+        name = requests.get(API_BASE_URL + 'me', headers=header).json()["display_name"]
         #gender = False #Needs to be taken from webpage
         #age = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Needs to be taken from the webpage
-        country = requests.get(API_BASE_URL + 'me', headers=headers).json()["country"]
-        email = requests.get(API_BASE_URL + 'me', headers=headers).json()["email"]
+        #country = requests.get(API_BASE_URL + 'me', headers=header)
+        #email = requests.get(API_BASE_URL + 'me', headers=header)
         #genres = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers).json()["items"] #Later run through loop
         #artists = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Later run through loop
         #songs = requests.get(API_BASE_URL + 'me/', headers=headers).json() #Later run through loop
 
-        print(f"\n\n\nImage: {profile},\nName: {name},\nCountry: {country},\nEmail: {email}\n\n\n")
+        print(f"\n\n\nName: {name}\n\n\n")
 
         return redirect('/') #After login page, for scroll
 
