@@ -111,6 +111,10 @@ def refresh_token():
         session['expires_at'] = datetime.now().timestamp() + new_token_info['expires_in']
 
         return redirect('/discover') #After login page, for scroll
-    
+
+@app.route('/spoaut')
+def spoaut():
+    return render_template('spoaut.html')
+
 if __name__=='__main__':
     app.run(host='0.0.0.0', debug=True)
