@@ -47,13 +47,15 @@
                 <div class="avatar mx-auto white pad" id="avatar" ><img src="headshot.png" class="rounded-circle"
                     alt="Sample avatar image." style="width:300px;height: 350px;">
                 </div>
-                <!-- Name -->
+                
+                <div id="pad">
+                    <!-- Name -->
                 <div class="card-body pad name">
                     <h1>{{name}}</h1>
                 </div>
                 <!--Age-->
                 <div class="card-body pad age">
-                  <h2>{{age}}</h2>
+                  <h2>{{gender}} {{age}}</h2>
                 </div>
                 <!--Compatibility Percentage-->
                 <div class="card-body pad percentage">
@@ -62,9 +64,21 @@
                     </h2>
                     </div>
               </div>
+                </div>
+
             <!--BACK OF FLIPCARD-->
             <div class="flip-card-back">
-            
+                <div >
+                    <h1>{{Top Artists:}}</h1>
+                </div>
+                <div >
+                    <h1>{{Top Songs:}}</h1>
+                </div>
+                <div >
+                    <h1>{{Favorite Genre:}}</h1>
+                </div>
+                
+
             </div>
             </div>
           </div>

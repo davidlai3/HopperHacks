@@ -40,7 +40,7 @@
   /* Style the back side */
   .flip-card-back {
     background-color: white;
-    color: white;
+    color: black;
     transform: rotateY(180deg);
   }
   
@@ -57,6 +57,9 @@
     padding-left: 30px;
   }
 
+  #pad{
+    padding-top: 170px;
+  }
   .name{ 
     font-family: 'Ubuntu', sans-serif;
     
@@ -79,12 +82,17 @@
   }
 
   #banner {
-    background-image:url("images.jpeg"); 
+    background-image: url("music.jpeg");    
+    background-size: 400px;
+    width: 550px;
+    height: 300px;
     display: block;
-
-    height:200px;
+    height:300px;
     position: relative;
+
     }
+    
+   
 
 /* Buttons */
   .round-button {
