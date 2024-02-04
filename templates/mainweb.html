@@ -44,7 +44,7 @@
                 <div id="banner"></div>
                
                 <!-- Avatar --> 
-                <div class="avatar mx-auto white pad" id="avatar" ><img src=""{{ url_for('static', filename='images/headshot.png')}}"" class="rounded-circle"
+                <div class="avatar mx-auto white pad" id="avatar" ><img src={{profileImage}} class="rounded-circle"
                     alt="Sample avatar image." style="width:300px;height: 350px;">
                 </div>
                 
@@ -96,9 +96,26 @@
 
     </div>
     <div class="tab-pane fade" id="matches">
-        <!--Matches-->
-      <h2>Your Matches Tab Content</h2>
-      <p>This is the content for the Your Matches tab.</p>
+        
+      
+      <!--Matches-->
+        <main role="main" class=" gradient-background container bootdey.com">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+    <div class="media text-muted pt-3">
+      <img src={{profile-image}} alt="" class="mr-2 rounded" width="32" height="32">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray ">
+        <strong class="d-block text-gray-dark">@{{username}}</strong>
+        {{phone number}}  
+        
+        <p class="white">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+      </p>
+      </p>
+    </div>
+ 
+          </div>
+        </main>
     </div>
   </div>
 
