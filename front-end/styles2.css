@@ -1,9 +1,14 @@
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
+    
+    
+    
+    
     background-color: transparent;
     width: 550px;
     height: 700px;
     border: 1px solid #f1f1f1;
+    border: none;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
   
@@ -33,17 +38,40 @@
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    background-color: #bbb;
+    background-color: white ;
     color: black;
   }
   
   /* Style the back side */
   .flip-card-back {
-    background-color: pink;
+    background-color: white;
     color: white;
     transform: rotateY(180deg);
   }
   
   .tab-font {
     font-family: 'Protest Strike', sans-serif;
+    font-size: large;
   }
+
+  .pad {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+  }
+
+  .name{ 
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .age{
+    font-family: 'Lato', sans-serif;
+  }
+
+  .percentage{
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+
+  
