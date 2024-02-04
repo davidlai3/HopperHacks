@@ -1,132 +1,152 @@
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.gradient-background {
+  background: linear-gradient(300deg, #87e384, #ff4c68, #ef8172);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+  
 .flip-card {
-    background-color: transparent;
-    width: 550px;
-    height: 700px;
-    border: none;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  }
-  
-  /* This container is needed to position the front and back side */
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-    background-color: white ;
-    color: black;
-  }
-  
-  /* Style the back side */
-  .flip-card-back {
-    background-color: white;
-    color: black;
-    transform: rotateY(180deg);
-  }
-  
-  .tab-font {
-    font-family: 'Protest Strike', sans-serif;
-    font-size: large;
-  }
+  background-color: transparent;
+  width: 550px;
+  height: 700px;
+  border: none;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: white ;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.tab-font {
+  font-family: 'Protest Strike', sans-serif;
+  font-size: large;
+}
 
 /* Padding */
-  .pad {
-    padding-top: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-  }
+.pad {
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+}
 
-  #pad{
-    padding-top: 170px;
-  }
-  .name{ 
-    font-family: 'Ubuntu', sans-serif;
-    
-  }
+#pad{
+  padding-top: 170px;
+}
+.name{ 
+  font-family: 'Ubuntu', sans-serif;
+  
+}
 
-  .age{
-    font-family: 'Lato', sans-serif;
-   
+.age{
+  font-family: 'Lato', sans-serif;
+ 
+}
+
+.percentage{
+  font-family: 'Ubuntu', sans-serif;
+  
+}
+
+#avatar{
+  position: absolute;
+  top: 70px;
+  left: 100px;
+}
+
+#banner {
+  background-image: url_for('static', filename='music.jpeg');    
+  background-size: 400px;
+  width: 550px;
+  height: 300px;
+  display: block;
+  height:300px;
+  position: relative;
+
   }
-
-  .percentage{
-    font-family: 'Ubuntu', sans-serif;
-    
-  }
-
-  #avatar{
-    position: absolute;
-    top: 70px;
-    left: 100px;
-  }
-
-  #banner {
-    background-image: url_for('static', filename='music.jpeg');    
-    background-size: 400px;
-    width: 550px;
-    height: 300px;
-    display: block;
-    height:300px;
-    position: relative;
-
-    }
-    
-   
+  
+ 
 
 /* Buttons */
-  .round-button {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    cursor: pointer;
-    border: 1px solid #e0e0e0;
-    transition: background-color 0.3s ease;
-  }
+.round-button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease;
+}
 
-  .round-button:hover {
-    background-color: #e0e0e0;
-  }
+.round-button:hover {
+  background-color: #e0e0e0;
+}
 
-  #like-button {
-    background: linear-gradient(180deg, rgb(135, 225, 135), rgb(76, 148, 220));
-    position: absolute; 
-    left: 1400px; 
-    top: 500px; 
-    
-  }
-
-  #dislike-button {
-    background: linear-gradient(180deg, rgb(223, 108, 127), rgb(238, 40, 238)); /* Red color for dislike button */
-    position: absolute; 
-    left: 250px; 
-    top: 500px; 
-  }
-
-
+#like-button {
+  background: linear-gradient(180deg, rgb(135, 225, 135), rgb(76, 148, 220));
+  position: absolute; 
+  left: 1400px; 
+  top: 500px; 
   
+}
+
+#dislike-button {
+  background: linear-gradient(180deg, rgb(223, 108, 127), rgb(238, 40, 238)); /* Red color for dislike button */
+  position: absolute; 
+  left: 250px; 
+  top: 500px; 
+}
+
+.white{
+color: white;
+}
+
