@@ -14,27 +14,31 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
     <title>Welcome</title>
 </head>
 <body class="gradient-background">
     <div class="title"> Mix & Match</div>
-    <button class="btn" onclick="toggleLogin()">Show Login</button>
+    <p id="slogan">Where tinder meets spotify</p>
+    <div class="button-container"><button class="button-62" onclick="toggleLogin()">Sign In</button></div>
     <div class="overlay">
       <div class="login">
         <div class="header">
           <h1>Login</h1>
-          <i class="fas fa-times" onclick="toggleLogin()"></i>
+          <i class="fas fa-times" onclick="toggleLogin()" id="closeIcon"></i>
         </div>
         <div class="body">
           <form action="#" class="form">
-            <input type="text" placeholder="username" />
+            <input type="text" placeholder="Email Address" />
             <input type="password" placeholder="Password" />
           </form>
         </div>
         <div class="footer">
-          <button>Login</button>
+          <button >Login</button>
         </div>
       </div>
     </div>

@@ -33,6 +33,15 @@
     text-align: center;
     top: 30px;
     color:antiquewhite;
+    margin-top: 230px;
+  }
+  #slogan {
+  font-family: 'DM Serif Display', serif;
+  font-family: 'Titillium Web', sans-serif;
+  font-size:30px;
+  text-align: center;
+  margin-top: -55px;
+  
   }
   .center {
     position:absolute;
@@ -46,6 +55,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
+    margin-top: 230px;
   }
   
   .overlay {
@@ -57,7 +67,17 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.2);
     z-index: 100;
+    top: 0%;
   }
+  #closeIcon {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #000051; /* Adjust the color as needed */
+  cursor: pointer;
+}
+
   
   .overlay.open {
     display: flex;
@@ -74,7 +94,7 @@
   }
   
   .login {
-    padding: 50px 25px;
+    padding: 110px 85px;
     background: white;
     border-radius: 10px;
   }
@@ -85,6 +105,7 @@
   
   .header h1 {
     text-align: center;
+    font-size: 30px;
     text-transform: uppercase;
     color: #000051;
     padding-bottom: 7px;
@@ -93,9 +114,9 @@
   
   .header i {
     position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 20px;
+    top: 0px;
+    right: 150px;
+    font-size: 80px;
     color: #000051;
   }
   
@@ -136,8 +157,48 @@
     background: #534bae;
   }
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed to center vertically */
+    margin-top:-100px;
+  }
+.button-62 {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  margin-top:-300px;
+}
+
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+>>>>>>> ee16db5a4be3e0c693c8a9d5f41711a39b994a3b
