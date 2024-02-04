@@ -3,12 +3,18 @@
 
 import requests
 import urllib.parse
+import spotipy
+import time
 
-from datetime import datetime
-from flask import Flask, redirect, request, jsonify, session, render_template
+from spotipy.oauth2 import SpotifyOAuth
+from flask import Flask, redirect, request, jsonify, session, render_template, url_for
 
 app = Flask(__name__)
+app.config['SESSION_COOKIE_NAME'] = 'Mix&Match Cookie'
 app.secret_key = '7CkWZTLgAkq5sMKTwAIAhXfo6nVleb7C'
+
+TOKEN_INFO = 'token_info'
+SCOPES = 'user-read-email user-top-read'
 
 CLIENT_ID = '2dc2786c2ea544fb9e4121acbb602238' #David's ID: 'f7e239bd09864f0e80778a36626ed251'
 CLIENT_SECRET = '2dc2786c2ea544fb9e4121acbb602238' #David's Secret: '51de16b26ecc48deb53cea24443a89c6'
@@ -17,6 +23,28 @@ REDIRECT_URI = 'http://localhost:5000/callback'
 AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'
+
+def create_spotify_oauth():
+    return SpotifyOAuth(
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET,
+        redirect_uri=url_for('callback'), _external = True,
+        scope=SCOPES
+    )
+
+def get_token():
+    token_info = session.get(TOKEN_INFO, None)
+    if not token_info:
+        redirect(url_for('login'), external=False)
+    
+    now = int(time.time())
+
+    is_expired = token_info['expires_at'] - now < 60
+    if is_expired:
+        spotify_oauth = create_spotify_oauth()
+        token_info = spotify_oauth.refresh_access_token(token_info['refresh_token'])
+    
+    return token_info
 
 def getting_input():
     headers = {
@@ -71,47 +99,16 @@ def index():
 
 @app.route('/authenticate')
 def login():
-    scopes = 'user-read-email user-top-read'
-    
-    params = {
-        'client_id': CLIENT_ID,
-        'response_type': 'code',
-        'scope': scopes,
-        'redirect_uri': REDIRECT_URI,
-        'show_dialog': True
-    }
-
-    auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
-
+    auth_url = create_spotify_oauth().get_authorize_url()
     return redirect(auth_url) #OAuthentication URL for logging into spotify
 
 @app.route('/callback')
 def callback():
-    if 'error' in request.args:
-        return jsonify({"error": request.args['error']})
-    
-    if 'code' in request.args:
-        req_body = {
-            'code': request.args['code'],
-            'grant_type': 'authorization_code',
-            'redirect_uri': REDIRECT_URI,
-            'client_id': CLIENT_ID,
-            'client_secret': CLIENT_SECRET
-        }
-
-        response = requests.post(TOKEN_URL, data=req_body)
-        token_info = response.json()
-
-        print(token_info)
-
-        session['access_token'] = token_info['access_token']
-        session['refresh_token'] = token_info['refresh_token']
-        session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
-
-        temp = getting_input()
-        print(temp)
-
-        return redirect('/mainweb') #After login page, for scroll
+    session.clear()
+    code = request.args.get('code')
+    token_info = create_spotify_oauth().get_access_token(code)
+    session[TOKEN_INFO] = token_info
+    return redirect(url_for('mainweb', external=True))
 
 @app.route('/refresh-token')
 def refresh_token():
