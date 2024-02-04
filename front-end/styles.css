@@ -1,7 +1,8 @@
 .gradient-background {
-    background: linear-gradient(300deg, #87e384, #ff4c68, #ef8172);
+    background: linear-gradient(300deg, #79eb75, #ff4c68, #ef8172);
     background-size: 180% 400%;
-    animation: gradient-animation 18s ease infinite;
+    animation: gradient-animation 25s ease infinite;
+    
   }
   
   @keyframes gradient-animation {
@@ -156,6 +157,13 @@
     background: #534bae;
   }
 
+<<<<<<< HEAD
+
+
+
+
+
+=======
   .button-container {
     display: flex;
     justify-content: center;
@@ -193,3 +201,4 @@
 .button-62:not([disabled]):hover {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
+>>>>>>> ee16db5a4be3e0c693c8a9d5f41711a39b994a3b
