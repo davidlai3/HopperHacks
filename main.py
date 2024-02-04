@@ -5,14 +5,14 @@ import requests
 import urllib.parse
 
 from datetime import datetime
-from flask import Flask, redirect, request, jsonify, session, render_template
+from flask import Flask, redirect, request, jsonify, session
 
 app = Flask(__name__)
 app.secret_key = '7CkWZTLgAkq5sMKTwAIAhXfo6nVleb7C'
 
 CLIENT_ID = '2dc2786c2ea544fb9e4121acbb602238'
 CLIENT_SECRET = 'cc31bdeb6fc147109b55b5e7f58080ab'
-REDIRECT_URI = 'https://noice-coder.github.io/HopperHacks24/callback'
+REDIRECT_URI = 'http://localhost:5000/callback'
 
 AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
@@ -20,7 +20,7 @@ API_BASE_URL = 'https://api.spotify.com/v1/'
 
 @app.route('/')
 def index():
-    return  "Welcome to our Spotify App <a href='/authenticate'>Login with Spotify Account</a>"#render_template('front-end/welcome.html')
+    return "Welcome to our Spotify App <a href='/authenticate'>Login with Spotify Account</a>" #render_template('front-end/welcome.html')#
 
 @app.route('/authenticate')
 def login():
